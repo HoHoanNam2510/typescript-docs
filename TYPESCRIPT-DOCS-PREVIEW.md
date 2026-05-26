@@ -14,9 +14,9 @@
 | Module 03 — OOP & Classes            | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
 | Module 04 — Generics & Utility Types | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
 | Module 05 — TypeScript Nâng Cao      | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
-| Module 06 — Thực Chiến & Ecosystem   | ⏳ Chưa làm       | 0/10    |                                        |
+| Module 06 — Thực Chiến & Ecosystem   | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
 
-**Cập nhật lần cuối:** 2026-05-26 (Module 05 hoàn thành)
+**Cập nhật lần cuối:** 2026-05-26 (Module 06 hoàn thành — toàn bộ 6 modules done)
 
 ---
 

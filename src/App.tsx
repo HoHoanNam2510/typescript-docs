@@ -7,6 +7,7 @@ import KieuDuLieu from './pages/KieuDuLieu';
 import OOP from './pages/OOP';
 import Generics from './pages/Generics';
 import NangCao from './pages/NangCao';
+import ThucChien from './pages/ThucChien';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/03-oop" element={<OOP />} />
         <Route path="/04-generics" element={<Generics />} />
         <Route path="/05-nang-cao" element={<NangCao />} />
+        <Route path="/06-thuc-chien" element={<ThucChien />} />
       </Routes>
     </>
   );
