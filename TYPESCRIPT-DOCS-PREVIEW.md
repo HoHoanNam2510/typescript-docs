@@ -7,16 +7,16 @@
 
 ## Tiến độ thực hiện
 
-| Module | Trạng thái | Bài học | Ghi chú |
-|--------|-----------|---------|---------|
-| Module 01 — TypeScript Cơ Bản | ✅ **Hoàn thành** | 10/10 | Build thành công, `tsc --noEmit` 0 lỗi |
-| Module 02 — Kiểu Dữ Liệu | ✅ **Hoàn thành** | 10/10 | Build thành công, `tsc --noEmit` 0 lỗi |
-| Module 03 — OOP & Classes | ⏳ Chưa làm | 0/10 | |
-| Module 04 — Generics & Utility Types | ⏳ Chưa làm | 0/10 | |
-| Module 05 — TypeScript Nâng Cao | ⏳ Chưa làm | 0/10 | |
-| Module 06 — Thực Chiến & Ecosystem | ⏳ Chưa làm | 0/12 | |
+| Module                               | Trạng thái        | Bài học | Ghi chú                                |
+| ------------------------------------ | ----------------- | ------- | -------------------------------------- |
+| Module 01 — TypeScript Cơ Bản        | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
+| Module 02 — Kiểu Dữ Liệu             | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
+| Module 03 — OOP & Classes            | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
+| Module 04 — Generics & Utility Types | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
+| Module 05 — TypeScript Nâng Cao      | ✅ **Hoàn thành** | 10/10   | Build thành công, `tsc --noEmit` 0 lỗi |
+| Module 06 — Thực Chiến & Ecosystem   | ⏳ Chưa làm       | 0/10    |                                        |
 
-**Cập nhật lần cuối:** 2026-05-26 (Module 02 hoàn thành)
+**Cập nhật lần cuối:** 2026-05-26 (Module 05 hoàn thành)
 
 ---
 
@@ -436,7 +436,7 @@ const fruits: ReadonlyArray<string> = ['apple', 'banana'];
 
 // Thực tế: dùng khi muốn đảm bảo array không bị thay đổi
 function processItems(items: readonly string[]): void {
-  items.forEach((item) => console.log(item)); // OK — chỉ đọc
+  items.forEach(item => console.log(item)); // OK — chỉ đọc
 }
 ```
 
@@ -446,13 +446,13 @@ function processItems(items: readonly string[]): void {
 const nums: number[] = [3, 1, 4, 1, 5];
 
 // map — trả về number[]
-const doubled: number[] = nums.map((n) => n * 2);
+const doubled: number[] = nums.map(n => n * 2);
 
 // filter — trả về number[]
-const evens: number[] = nums.filter((n) => n % 2 === 0);
+const evens: number[] = nums.filter(n => n % 2 === 0);
 
 // find — trả về number | undefined
-const found: number | undefined = nums.find((n) => n > 3);
+const found: number | undefined = nums.find(n => n > 3);
 
 // reduce
 const sum: number = nums.reduce((acc, n) => acc + n, 0);
@@ -865,13 +865,7 @@ type Matrix = number[][];
 type Callback = (error: Error | null, data?: string) => void;
 
 // Recursive type
-type JSONValue =
-  | string
-  | number
-  | boolean
-  | null
-  | JSONValue[]
-  | { [key: string]: JSONValue };
+type JSONValue = string | number | boolean | null | JSONValue[] | { [key: string]: JSONValue };
 
 const validJSON: JSONValue = {
   name: 'Alice',
@@ -996,11 +990,7 @@ function greet(name: string, greeting?: string): string {
 }
 
 // Default parameters
-function createUser(
-  name: string,
-  role: string = 'user',
-  active: boolean = true
-) {
+function createUser(name: string, role: string = 'user', active: boolean = true) {
   return { name, role, active };
 }
 
@@ -1252,7 +1242,7 @@ class Rectangle extends Shape {
 
 // Polymorphism
 const shapes: Shape[] = [new Circle(5), new Rectangle(4, 6)];
-shapes.forEach((s) => console.log(s.describe()));
+shapes.forEach(s => console.log(s.describe()));
 ```
 
 ---
@@ -1568,12 +1558,7 @@ function isString(value: unknown): value is string {
 }
 
 function isUser(value: unknown): value is User {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'id' in value &&
-    'name' in value
-  );
+  return typeof value === 'object' && value !== null && 'id' in value && 'name' in value;
 }
 
 // Assertion functions (TS 3.7+)
@@ -1604,12 +1589,7 @@ type Resolved = UnpackPromise<Promise<string>>; // string
 type Plain = UnpackPromise<number>; // number
 
 // Infer với function types
-type FirstArgument<T> = T extends (
-  first: infer F,
-  ...rest: unknown[]
-) => unknown
-  ? F
-  : never;
+type FirstArgument<T> = T extends (first: infer F, ...rest: unknown[]) => unknown ? F : never;
 type Arg = FirstArgument<(name: string, age: number) => void>; // string
 
 // Practical: Deep non-nullable
@@ -1813,9 +1793,7 @@ class NotFoundError extends AppError {
 }
 
 // Result type pattern — không dùng throw
-type Result<T, E = Error> =
-  | { success: true; data: T }
-  | { success: false; error: E };
+type Result<T, E = Error> = { success: true; data: T } | { success: false; error: E };
 
 async function safeCreateUser(dto: CreateUserDto): Promise<Result<User>> {
   try {
@@ -1871,10 +1849,7 @@ interface ServerConfig {
 async function createServer(config: ServerConfig): Promise<http.Server> {
   const server = http.createServer(async (req, res) => {
     const url = req.url ?? '/';
-    const filePath = path.join(
-      config.staticDir,
-      url === '/' ? 'index.html' : url
-    );
+    const filePath = path.join(config.staticDir, url === '/' ? 'index.html' : url);
 
     try {
       const content = await fs.readFile(filePath);
@@ -1886,7 +1861,7 @@ async function createServer(config: ServerConfig): Promise<http.Server> {
     }
   });
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     server.listen(config.port, config.host, () => resolve(server));
   });
 }
@@ -1914,11 +1889,7 @@ const router = express.Router();
 
 router.post(
   '/posts',
-  async (
-    req: Request<{}, Post, CreatePostBody>,
-    res: Response<Post>,
-    next: NextFunction
-  ) => {
+  async (req: Request<{}, Post, CreatePostBody>, res: Response<Post>, next: NextFunction) => {
     try {
       const { title, content, authorId } = req.body;
       const post = await PostService.create({ title, content, authorId });
@@ -2123,7 +2094,7 @@ function createStore<S, A>(reducer: Reducer<S, A>, initialState: S) {
     getState: (): S => state,
     dispatch: (action: A): void => {
       state = reducer(state, action);
-      listeners.forEach((l) => l());
+      listeners.forEach(l => l());
     },
     subscribe: (listener: () => void): (() => void) => {
       listeners.push(listener);

@@ -6,6 +6,7 @@ import Coban from './pages/Coban';
 import KieuDuLieu from './pages/KieuDuLieu';
 import OOP from './pages/OOP';
 import Generics from './pages/Generics';
+import NangCao from './pages/NangCao';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/02-kieu-du-lieu" element={<KieuDuLieu />} />
         <Route path="/03-oop" element={<OOP />} />
         <Route path="/04-generics" element={<Generics />} />
+        <Route path="/05-nang-cao" element={<NangCao />} />
       </Routes>
     </>
   );
