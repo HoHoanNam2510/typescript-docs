@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Index from './pages/Index';
 import Coban from './pages/Coban';
 import KieuDuLieu from './pages/KieuDuLieu';
+import OOP from './pages/OOP';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/" element={<Index />} />
         <Route path="/01-co-ban" element={<Coban />} />
         <Route path="/02-kieu-du-lieu" element={<KieuDuLieu />} />
+        <Route path="/03-oop" element={<OOP />} />
       </Routes>
     </>
   );
