@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Nav from './components/Nav';
 import Index from './pages/Index';
 import Coban from './pages/Coban';
+import KieuDuLieu from './pages/KieuDuLieu';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,6 +21,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/01-co-ban" element={<Coban />} />
+        <Route path="/02-kieu-du-lieu" element={<KieuDuLieu />} />
       </Routes>
     </>
   );

@@ -10,13 +10,13 @@
 | Module | Trạng thái | Bài học | Ghi chú |
 |--------|-----------|---------|---------|
 | Module 01 — TypeScript Cơ Bản | ✅ **Hoàn thành** | 10/10 | Build thành công, `tsc --noEmit` 0 lỗi |
-| Module 02 — Kiểu Dữ Liệu | ⏳ Chưa làm | 0/10 | |
+| Module 02 — Kiểu Dữ Liệu | ✅ **Hoàn thành** | 10/10 | Build thành công, `tsc --noEmit` 0 lỗi |
 | Module 03 — OOP & Classes | ⏳ Chưa làm | 0/10 | |
 | Module 04 — Generics & Utility Types | ⏳ Chưa làm | 0/10 | |
 | Module 05 — TypeScript Nâng Cao | ⏳ Chưa làm | 0/10 | |
 | Module 06 — Thực Chiến & Ecosystem | ⏳ Chưa làm | 0/12 | |
 
-**Cập nhật lần cuối:** 2026-05-26
+**Cập nhật lần cuối:** 2026-05-26 (Module 02 hoàn thành)
 
 ---
 
